@@ -1,3 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .header-icon {
+    @apply w-6 h-6 pointer-events-auto hover:text-hsrmDarkRed  focus:text-hsrmDarkRed
+  }
+  .nav-icon{
+    @apply w-6 h-6 pointer-events-auto hover:text-hsrmDarkRed focus:text-hsrmDarkRed
+  }
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
