@@ -3,10 +3,10 @@ import {navLinks} from './utils/NavDb';
 import { useRecoilState } from "recoil";
 import { activeNavItemState } from "../../atoms/ActiveNavBarAtom";
 
-
-function NavBar() {
+function NavBar(props) {
   return (
-    <nav className='col-span-2 border-r border-gray-200 min-h-[90vh] w-[80px] xl:w-[250px] pt-8 px-1 flex flex-col items-start justify-between'>
+    <nav className={`absolute bg-neutral-300 left-0 top-14 col-span-2 border-r z-50 border-gray-200 min-h-[100vh] w-[250px] xl:w-[250px]
+      xl:top-16 pt-6 px-1 flex flex-col items-start justify-between transform ${props.isOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 ease-out`}>
       <div className='space-y-8 w-full'>
         {navLinks.slice(0,5).map((link)=>(
           <NavItem link={link} key={link.id}/>
@@ -19,6 +19,7 @@ function NavBar() {
     </nav>
   );
 }
+
 
 function NavItem({link}){
   const [activeNav, setActiveNav]= useRecoilState(activeNavItemState);
@@ -33,7 +34,7 @@ function NavItem({link}){
     >
       <span> {link.icon }</span>
       <h1
-        className={`text-hsrmDarkGrey group-hover:text-hsrmDarkRed xl:flex hidden ${
+        className={`text-hsrmDarkGrey group-hover:text-hsrmDarkRed block ${
           activeNav === link.id && "text-hsrmDarkRed "
         }} `}
       >

@@ -1,4 +1,4 @@
-import {ArchiveBoxIcon, ArrowRightOnRectangleIcon, BuildingOffice2Icon, ClipboardDocumentCheckIcon, PresentationChartLineIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/outline"
+import {ArchiveBoxIcon, ViewColumnsIcon, ArrowRightOnRectangleIcon, BuildingOffice2Icon, ClipboardDocumentCheckIcon, PresentationChartLineIcon, ShoppingCartIcon, UserIcon } from "@heroicons/react/24/outline"
 
 export const navLinks = [
   {
@@ -26,6 +26,7 @@ export const navLinks = [
     title: "Bestandübersicht",
     icon: <ClipboardDocumentCheckIcon className="nav-icon" />,
   },
+ 
   {
     id: 5,
     title: "Admin",
