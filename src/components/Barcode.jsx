@@ -1,11 +1,22 @@
 import React, { useState } from "react";
 import Barcode from "react-barcode";
+import html2canvas from "html2canvas";
 
 function Barcodes(props) {
   const [value, setValue] = useState("");
 
   const setValueBarcode = () => {
     setValue("");
+  };
+/*Download Button*/
+  const handleDownloadClick = () => {
+    const barcodeNode = document.getElementById("barcode");
+    html2canvas(barcodeNode).then((canvas) => {
+      const link = document.createElement("a");
+      link.download = "barcode.png";
+      link.href = canvas.toDataURL();
+      link.click();
+    });
   };
 
   return (
@@ -21,9 +32,12 @@ function Barcodes(props) {
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <div className="">
+        <div id="barcode">
           <Barcode z-0 value={value} />
         </div>
+        <button
+        className="bg-hsrmDarkRed hover:bg-hsrmRed  text-white font-bold py-2 px-4 mt-4 rounded"
+        onClick={handleDownloadClick}> Herunterladen </button>
       </div>
     </div>
   );
