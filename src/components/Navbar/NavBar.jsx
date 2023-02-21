@@ -19,8 +19,6 @@ function NavBar(props) {
     </nav>
   );
 }
-
-
 function NavItem({link}){
   const [activeNav, setActiveNav]= useRecoilState(activeNavItemState);
   return(

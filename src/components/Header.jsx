@@ -3,8 +3,13 @@ import { useState } from 'react';
 import NavBar from './Navbar/NavBar';
 import {Bars3Icon, InboxIcon, MagnifyingGlassCircleIcon, QrCodeIcon, BellIcon} from '@heroicons/react/24/outline';
 
+
 function Header (){
     const [isOpen, setIsOpen] = useState(false);
+
+     const openBarcodeScanner = () => {
+        setIsOpen(true);
+    }
     return(
         <div className='bg-neutral-200 w-full py-2 items-center justify-between flex px-4 xl:py-1'>
         <button 
@@ -31,8 +36,8 @@ function Header (){
             </div>
             {/*right-icons */}
             <div className='items-center justify-end space-x-6 flex w-full'>
-                
-                <QrCodeIcon className='header-icon'/>
+               
+                <QrCodeIcon className='header-icon'  />
                      {/*animate-ping */}
                      <span className="flex absolute -mt-1 ml-4">
                          <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-hsrmDarkGrey opacity-100"></span>
@@ -43,6 +48,7 @@ function Header (){
              </div>
         </div>
         <NavBar isOpen={isOpen} />
+
         </div>
     )    
 }
